@@ -3,16 +3,18 @@ name: deploy-toy-website
 on: [workflow_dispatch]
 
 jobs:
-  say-hello:
+  ask-approve:
     runs-on: ubuntu-latest
     steps:
-      - name: 'placeholder step'
-        run: echo "Hello world!"
-      - name: Await Manual Approval
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+      - name: Wait for approval
         uses: trstringer/manual-approval@v1
         with:
-          secret: ${{ github.TOKEN }}
-          approvers: andrzejp12 # Replace with GitHub usernames, with the free version you can only have an issue assigned to one username
+          secret: ${{ steps.generate_token.outputs.token }}
+          approvers: andrzejp12
           minimum-approvals: 1
-          issue-title: "Manual Approval Required for Terraform Apply"
-          issue-body: "Please approve or deny the deployment."
