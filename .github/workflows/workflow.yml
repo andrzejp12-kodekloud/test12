@@ -4,11 +4,23 @@ jobs:
   ask-approve:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for approval
+      - name: doing something1
+        run: echo OK
+      - name: Wait for approval1
         uses: trstringer/manual-approval@v1
         with:
           secret: ${{ secrets.TOKEN }}
           approvers: andrzejp12
           minimum-approvals: 1
-          issue-title: "Deploying v1.3.5 to prod from staging"
-          issue-body: "Please approve or deny the deployment of version v1.3.5."
+          issue-title: "doing something1"
+          issue-body: "Please approve something1"
+      - name: doing something2
+        run: echo OK
+      - name: Wait for approval2
+        uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ secrets.TOKEN }}
+          approvers: andrzejp12
+          minimum-approvals: 1
+          issue-title: "doing something2"
+          issue-body: "Please approve something2"
