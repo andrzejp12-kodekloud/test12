@@ -5,16 +5,14 @@ on: [workflow_dispatch]
 jobs:
   ask-approve:
     runs-on: ubuntu-latest
-    steps:
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@v1
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-      - name: Wait for approval
-        uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ steps.generate_token.outputs.token }}
-          approvers: andrzejp12
-          minimum-approvals: 1
+  steps:
+    - uses: trstringer/manual-approval@v1
+      with:
+        secret: ${{ secrets.TOKEN }}
+        approvers: andrzejp12
+        minimum-approvals: 1
+        issue-title: "Deploying v1.3.5 to prod from staging"
+        issue-body: "Please approve or deny the deployment of version v1.3.5."
+        exclude-workflow-initiator-as-approver: false
+        additional-approved-words: ''
+        additional-denied-words: ''
