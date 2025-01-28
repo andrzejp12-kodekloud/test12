@@ -6,7 +6,8 @@ jobs:
   ask-approve:
     runs-on: ubuntu-latest
   steps:
-    - uses: trstringer/manual-approval@v1
+    - name: Wait for approval
+      uses: trstringer/manual-approval@v1
       with:
         secret: ${{ secrets.TOKEN }}
         approvers: andrzejp12
