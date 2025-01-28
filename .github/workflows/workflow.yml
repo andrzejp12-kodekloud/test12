@@ -9,7 +9,7 @@ jobs:
       - name: Wait for approval1
         uses: trstringer/manual-approval@v1
         with:
-          secret: ${{ github.TOKEN }}
+          secret: ${{ secrets.TOKEN }}
           approvers: andrzejp12
           minimum-approvals: 1
           issue-title: "doing something1"
