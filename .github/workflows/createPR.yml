@@ -1,7 +1,13 @@
 name: create PR
-on: [workflow_dispatch]
+on:
+  - workflow_dispatch
+  - push:
+      branches:
+        - feature2
+        - test
 jobs:
   createPR:
+    if: "contains(github.event.head_commit.message, 'createPR')"
     runs-on: ubuntu-latest
     steps:
      - name: Check out repository code
