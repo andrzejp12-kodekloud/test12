@@ -15,6 +15,6 @@ jobs:
      - name: print env
        run: printenv
      - name: create pull request
-       run: gh pr create -B main -H test --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
+       run: gh pr create -B main -H $GITHUB_REF_NAME --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action' -r andrzejp1212 -a andrzejp1212
        env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
