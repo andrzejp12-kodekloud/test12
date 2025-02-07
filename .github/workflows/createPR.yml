@@ -1,6 +1,5 @@
 name: create PR
 on:
-  - workflow_dispatch
   - push:
       branches:
         - feature2
