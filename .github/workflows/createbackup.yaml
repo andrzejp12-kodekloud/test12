@@ -1,0 +1,12 @@
+name: create backup
+on:
+  pull_request_review:
+    types: [submitted]
+	
+jobs:
+  createBackup:
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+     - name: print backup
+       run: echo backup
