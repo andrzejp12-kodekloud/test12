@@ -1,7 +1,7 @@
 name: create PR
 on:
-  - push:
-      branches:
+  push:
+    branches:
         - feature2
         - test
 jobs:
