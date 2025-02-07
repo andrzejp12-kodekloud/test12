@@ -1,0 +1,13 @@
+on:
+  pull_request:
+    branches: 
+      - main
+    types: [closed]
+
+jobs:
+  change-on-prod:
+    if: ${{ github.event.pull_request.merged }}
+    runs-on: ubuntu-latest
+    steps:
+     - name: push-prod
+       run: echo push-prod
