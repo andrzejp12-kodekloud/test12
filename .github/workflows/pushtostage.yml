@@ -16,3 +16,4 @@ jobs:
 	   echo "branch: $GITHUB_REF_NAME"
 	   cat test
 	   echo "doing something on STAGE"
+    
