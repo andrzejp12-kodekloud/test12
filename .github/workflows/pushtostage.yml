@@ -6,12 +6,12 @@ on:
 
 jobs:
   change-on-prod:
-    if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     steps:
      - name: Check out repository code
        uses: actions/checkout@v2
-       run:  | 
-         echo "branch: $GITHUB_REF_NAME"
      - name: push-prod
-       run: echo "doing something on PROD"
+       run: |
+         echo "branch: $GITHUB_REF_NAME"
+         echo "doing something on PROD"
+         cat test
