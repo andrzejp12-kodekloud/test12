@@ -14,5 +14,6 @@ jobs:
      - name: push-prod
        run: |
 	   echo "branch: $GITHUB_REF_NAME"
+	   echo "doing something on PROD"    
 	   cat test
-	   echo "doing something on PROD"
+
