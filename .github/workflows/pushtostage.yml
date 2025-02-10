@@ -14,5 +14,5 @@ jobs:
        run:  echo "branch: $GITHUB_REF_NAME"
      - name: push-prod
        run: |
-	   cat test
-	   echo "doing something on STAGE"
+         cat test
+	 echo "doing something on PROD"
