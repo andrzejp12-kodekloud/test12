@@ -1,18 +1,17 @@
+name: Push to stage
 on:
   pull_request:
     branches: 
       - main
     types: [created]
-
 jobs:
-  change-on-prod:
-    if: ${{ github.event.pull_request.merged }}
+  change-on-stage:
     runs-on: ubuntu-latest
     steps:
      - name: Check out repository code
        uses: actions/checkout@v2
-     - name: push-prod
+     - name: push-stage
        run: |
-	   echo "branch: $GITHUB_REF_NAME"
-	   cat test
-	   echo "doing something on STAGE"
+         echo "branch: $GITHUB_REF_NAME"
+         cat test
+         echo "doing something on stage"
