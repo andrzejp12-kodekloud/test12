@@ -11,8 +11,7 @@ jobs:
     steps:
      - name: Check out repository code
        uses: actions/checkout@v2
-       run:  echo "branch: $GITHUB_REF_NAME"
+       run:  | 
+         echo "branch: $GITHUB_REF_NAME"
      - name: push-prod
-       run: |
-         cat test
-	 echo "doing something on PROD"
+       run: echo "doing something on PROD"
