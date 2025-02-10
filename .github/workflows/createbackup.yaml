@@ -7,5 +7,9 @@ jobs:
     if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
+     - name: Check out repository code
+       uses: actions/checkout@v2
+     - name: print env
+       run: printenv    
      - name: print backup
        run: echo backup
