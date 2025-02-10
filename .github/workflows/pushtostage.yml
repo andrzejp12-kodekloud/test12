@@ -10,7 +10,7 @@ jobs:
     steps:
      - name: Check out repository code
        uses: actions/checkout@v2
-     - name: push-prod
+     - name: push-stage
        run: |
          echo "branch: $GITHUB_REF_NAME"
          echo "doing something on STAGE"
