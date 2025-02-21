@@ -12,7 +12,8 @@ on:
           - dev
           - stg
           - prd
-
+env:
+  ID: "Sub_"${{ github.event.inputs.environment }}}
 jobs:
   example_matrix:
     strategy:
@@ -23,6 +24,4 @@ jobs:
       - name: Install Terraform
         run: echo   ${{ matrix.version }}.${{ github.event.inputs.environment }}
       - name: Install Terraform1
-        run: echo   ${{ vars."Sub_"${{ github.event.inputs.environment }}}}
-        #}}
-
+        run: echo $ID
