@@ -18,6 +18,7 @@ jobs:
     strategy:
       matrix:
         version: [10, 12, 14]
+    runs-on: ubuntu-latest    
     steps:
       - name: Install Terraform
         run: echo   ${{ matrix.version }}.${{ github.event.inputs.environment }}
