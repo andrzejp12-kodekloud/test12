@@ -1,1 +1,23 @@
+name: Dynamic
 
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select Environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - stg
+          - prd
+
+jobs:
+  example_matrix:
+    strategy:
+      matrix:
+        version: [10, 12, 14]
+    steps:
+      - name: Install Terraform
+        run: echo   ${{ matrix.version }}.${{ github.event.inputs.environment }}
