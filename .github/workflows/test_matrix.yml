@@ -26,5 +26,5 @@ jobs:
       - name: Step2
         run: echo  $ID 
       - name: step3
-        run: echo ${{ vars.[env.ID] }}
+        run: echo ${{ vars[env.ID] }}
         #
