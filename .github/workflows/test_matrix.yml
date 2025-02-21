@@ -24,5 +24,5 @@ jobs:
       - name: Install Terraform
         run: echo   ${{ matrix.version }}.${{ github.event.inputs.environment }}
       - name: Install Terraform1
-        run: echo ${{ vars.'${{ $ID }}' }}
+        run: echo ${{ vars."${{ $ID }}" }}
         #
