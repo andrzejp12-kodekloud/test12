@@ -20,6 +20,7 @@ jobs:
       matrix:
         version: [10]
     runs-on: ubuntu-latest    
+    environment: ${{ github.event.inputs.environment }}
     steps:
       - name: step1
         run: echo   ${{ matrix.version }}.${{ github.event.inputs.environment }}
