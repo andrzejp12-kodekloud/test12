@@ -25,6 +25,6 @@ jobs:
         run: echo   ${{ matrix.version }}.${{ github.event.inputs.environment }}
       - name: Step2
         run: echo  $ID 
-      - name: Install Terraform1
-        run: echo ${{ vars.'$ID' }}
+      #- name: Install Terraform1
+        #run: echo ${{ vars.'$ID' }}
         #
