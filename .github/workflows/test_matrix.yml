@@ -21,8 +21,10 @@ jobs:
         version: [10, 12, 14]
     runs-on: ubuntu-latest    
     steps:
-      - name: Install Terraform
+      - name: step1
         run: echo   ${{ matrix.version }}.${{ github.event.inputs.environment }}
+      - name: Step2
+        run: echo  $ID 
       - name: Install Terraform1
-        run: echo ${{ vars."$ID" }}
+        run: echo ${{ vars.'$ID' }}
         #
