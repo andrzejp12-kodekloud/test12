@@ -1,4 +1,4 @@
-name: Dynamic Terraform Workflow
+name: deploy manual on dev
 
 on:
   workflow_dispatch:
@@ -32,16 +32,20 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-      TEST_ENV: $(cat /etc/resolv.conf)
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set environment variables
         run: | 
-          echo $TEST_ENV
           echo "DOMAIN=${{ github.event.inputs.domain }}" >> $GITHUB_ENV
           echo "ENVIRONMENT=${{ github.event.inputs.environment }}" >> $GITHUB_ENV
           echo "TFVARS_FILE=${{ github.event.inputs.environment }}.tfvars" >> $GITHUB_ENV
           echo "BACKEND_CONFIG=${{ github.event.inputs.domain }}/Backend_${{ github.event.inputs.environment }}" >> $GITHUB_ENV
-
+      - name: Terraform Init
+        run: |
+          cd $DOMAIN
+          echo "terraform init with $BACKEND_CONFIG"
+      - name: Terraform Plan
+          echo "terraform plan"
+          
