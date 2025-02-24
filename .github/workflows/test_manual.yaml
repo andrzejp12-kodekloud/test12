@@ -49,6 +49,9 @@ jobs:
       - name: Terraform Plan
         run: echo "terraform plan"
       - name: create pull request
-        run: gh pr create -B main -H $GITHUB_REF_NAME --title "Update domain=$DOMAIN environment=$ENVIRONMENT" --body 'Created by Github action' -r andrzejp12-kodekloud/team-a
+        run: |
+          echo PR_T="Update domain=$DOMAIN environment=$ENVIRONMENT" >> $GITHUB_ENV
+          echo $PR_T
+          gh pr create -B main -H $GITHUB_REF_NAME --title "Update domain=$DOMAIN environment=$ENVIRONMENT" --body 'Created by Github action' -r andrzejp12-kodekloud/team-a
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}          
