@@ -19,3 +19,7 @@ jobs:
          echo "DOMAIN=${{ github.event.pull_request.title }}" >> $GITHUB_ENV
      - name: test env
        run: echo $DOMAIN
+     - name: all 
+       env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+       run: echo "$GITHUB_CONTEXT"
