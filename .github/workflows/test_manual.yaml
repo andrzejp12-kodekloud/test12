@@ -1,4 +1,4 @@
-name: deploy manual on dev
+name: deploy manual
 
 on:
   workflow_dispatch:
