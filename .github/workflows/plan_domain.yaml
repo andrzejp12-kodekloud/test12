@@ -1,4 +1,4 @@
-name: deploy on domain
+name: plan on domain
 
 on:
   workflow_dispatch:
