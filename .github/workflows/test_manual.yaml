@@ -50,6 +50,7 @@ jobs:
         run: echo "terraform plan"
       - name: create pull request
         run: |
+          echo $DOMAIN
           echo PR_TITLE="Update domain=$DOMAIN environment=$ENVIRONMENT" >> $GITHUB_ENV
           gh pr create -B main -H $GITHUB_REF_NAME --title $PR_TITLE --body 'Created by Github action' -r andrzejp12-kodekloud/team-a
         env:
