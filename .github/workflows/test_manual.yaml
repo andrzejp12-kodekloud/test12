@@ -9,10 +9,10 @@ on:
         default: 'Domain1'
         type: choice
         options:
-          - Domain1
-          - Domain2
-          - Domain3
-          - Domain4
+          - domain1
+          - domain2
+          - domain3
+          - domain4
       environment:
         description: 'Select Environment'
         required: true
@@ -48,4 +48,7 @@ jobs:
           echo "terraform init with $BACKEND_CONFIG"
       - name: Terraform Plan
           echo "terraform plan"
-          
+      - name: create pull request
+        run: gh pr create -B main -H $GITHUB_REF_NAME --title 'Update domain=$DOMAIN environment=$ENVIRONMENT' --body 'Created by Github action' -r andrzejp12-kodekloud/team-a
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}          
