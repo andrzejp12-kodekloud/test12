@@ -47,7 +47,7 @@ jobs:
           cd $DOMAIN
           echo "terraform init with $BACKEND_CONFIG"
       - name: Terraform Plan
-          echo "terraform plan"
+        run: echo "terraform plan"
       - name: create pull request
         run: gh pr create -B main -H $GITHUB_REF_NAME --title 'Update domain=$DOMAIN environment=$ENVIRONMENT' --body 'Created by Github action' -r andrzejp12-kodekloud/team-a
         env:
