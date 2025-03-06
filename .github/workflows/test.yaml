@@ -21,6 +21,11 @@ on:
           - stg
           - prd
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo "${{format('ID_{0}{1}', github.event.inputs.environment,github.event.inputs.domain == vars.shared_name && '_shared' || '' )}}"
   terraform-plan-call:
     uses: ./.github/workflows/called.yaml
     with:
