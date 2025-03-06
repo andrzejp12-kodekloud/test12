@@ -1,15 +1,7 @@
-name: deploy-toy-website
-on: [workflow_dispatch]
-    inputs:
-      domain:
-        description: 'Select Domain'
-        required: true
-        type: choice
-        options: 
-          - domain1
-          - domain2
-          - domain3
-          - shared
+name: testworkflow
+on:
+  workflow_dispatch:
+
 jobs:
   ask-approve:
     runs-on: ubuntu-latest
