@@ -25,7 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test
-        run: echo 11
+        run: echo 111
+  workflow_call:      
     uses: ./.github/workflows/called.yaml
     with:
-      DOMAIN: ${{ vars[format('ID_{0}{1}', github.event.inputs.environment,github.event.inputs.domain == vars.shared_name ? '_' + vars.shared_name : '' )]}}
+      DOMAIN: ${{ vars['ID_' + github.event.inputs.environment + (github.event.inputs.domain == vars.shared_name ? '_' + vars.shared_name : '')] }}
