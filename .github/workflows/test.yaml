@@ -1,5 +1,4 @@
-name: Dynamic
-
+name: printenv
 on:
   workflow_dispatch:
 
