@@ -10,7 +10,7 @@ on:
           - domain1
           - domain2
           - domain3
-          - shared
+          - dlmz
       environment:
         description: 'Select Environment'
         required: true
