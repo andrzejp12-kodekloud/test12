@@ -14,7 +14,7 @@ on:
 env:
   APP: ${{ secrets.APP_PRIVATE_KEY }}
   eep: ${{ secrets.ENV}}
-  XXX: ${{ inputs.DOMAIN == 'dlmz' && '' || vars.WRK_DIR }}
+  XXX: ${{ inputs.DOMAIN == 'dlmz' && './' || vars.WRK_DIR }}
 
 jobs:
   terraform:
