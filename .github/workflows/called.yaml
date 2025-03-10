@@ -7,8 +7,13 @@ on:
         type: string
         description: 'target domain'
         required: true
+    secrets:
+      ENV: 
+        required: true
+        
 env:
   APP: ${{ secrets.APP_PRIVATE_KEY }}
+  eep: ${{ secrets.ENV}}
 
 jobs:
   terraform:
@@ -19,3 +24,4 @@ jobs:
           echo ${{inputs.DOMAIN}}
           echo ${{ vars.ID_DEV_DMLZ }}
           echo ${{ env.APP }}
+          echo ${{ env.eep}}
