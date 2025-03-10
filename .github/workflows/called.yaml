@@ -14,7 +14,8 @@ on:
 env:
   APP: ${{ secrets.APP_PRIVATE_KEY }}
   eep: ${{ secrets.ENV}}
-  XXX: ${{ inputs.DOMAIN == 'dlmz' && './' || vars.WRK_DIR }}
+  XXX: ${{ inputs.DOMAIN == 'dlmz' && './' || vars.WRK_DIR + '/' + inputs.DOMAIN  }}
+  XXX1: ${{env.XXX}}/${{inputs.DOMAIN}}
 
 jobs:
   terraform:
@@ -29,8 +30,29 @@ jobs:
           pwd
           cd ${{env.XXX}}/${{inputs.DOMAIN}}
           echo "inside folder"
+          echo "aaa" > test
           pwd
           echo ${{inputs.DOMAIN}}
           echo ${{ vars.ID_DEV_DMLZ }}
           echo ${{ env.APP }}
           echo ${{ env.eep}}
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-plan
+          path: ${{env.XXX}}/${{inputs.DOMAIN}}/test
+
+      - name: remove
+        run: |
+          rm -f ${{env.XXX}}/${{inputs.DOMAIN}}/test
+          ls ${{env.XXX}}/${{inputs.DOMAIN}}/
+      - name: download
+        uses: actions/download-artifact@v4
+        with:
+          name: terraform-plan
+          path: ${{env.XXX}}/${{inputs.DOMAIN}}/
+          
+      - name: test
+        run: |
+          ls ${{env.XXX}}/${{inputs.DOMAIN}}/
+
