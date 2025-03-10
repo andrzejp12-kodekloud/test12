@@ -14,6 +14,7 @@ on:
 env:
   APP: ${{ secrets.APP_PRIVATE_KEY }}
   eep: ${{ secrets.ENV}}
+  XXX: ${{ inputs.DOMAIN == 'dlmz' && 'dlmz11' || inputs.DOMAIN }}
 
 jobs:
   terraform:
@@ -21,6 +22,7 @@ jobs:
     steps:
       - name: Checkout code
         run: | 
+          echo ${{ env.XXX}}
           echo ${{inputs.DOMAIN}}
           echo ${{ vars.ID_DEV_DMLZ }}
           echo ${{ env.APP }}
