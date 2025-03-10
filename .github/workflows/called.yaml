@@ -7,6 +7,8 @@ on:
         type: string
         description: 'target domain'
         required: true
+env:
+  APP: ${{ secrets.APP_PRIVATE_KEY }}
 
 jobs:
   terraform:
@@ -16,4 +18,4 @@ jobs:
         run: | 
           echo ${{inputs.DOMAIN}}
           echo ${{ vars.ID_DEV_DMLZ }}
-          echo ${{ secrets.APP_PRIVATE_KEY }}
+          echo ${{ env.APP }}
