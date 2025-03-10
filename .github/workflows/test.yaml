@@ -29,4 +29,4 @@ jobs:
   workflow_call:      
     uses: ./.github/workflows/called.yaml
     with:
-      DOMAIN: ${{ vars['ID_' + github.event.inputs.environment + (github.event.inputs.domain == vars.shared_name ? '_' + vars.shared_name : '')] }}
+      DOMAIN: ${{ input.domain }}
