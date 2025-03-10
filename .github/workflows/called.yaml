@@ -24,7 +24,7 @@ jobs:
         run: | 
           echo ${{ env.XXX}}
           pwd
-          ls
+          ls -R
           cd ${{env.XXX}}/${{inputs.DOMAIN}}
           pwd
           echo ${{inputs.DOMAIN}}
