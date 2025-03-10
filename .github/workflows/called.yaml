@@ -27,8 +27,8 @@ jobs:
           echo ${{ inputs.DOMAIN }}
           echo ${{ env.XXX}}
           pwd
-          ls -R
           cd ${{env.XXX}}/${{inputs.DOMAIN}}
+          echo "inside folder"
           pwd
           echo ${{inputs.DOMAIN}}
           echo ${{ vars.ID_DEV_DMLZ }}
