@@ -13,4 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        run: echo ${{inputs.DOMAIN}}
+        run: | 
+          echo ${{inputs.DOMAIN}}
+          echo ${{ vars.ID_DEV_DMLZ }}
