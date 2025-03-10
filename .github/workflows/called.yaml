@@ -23,6 +23,8 @@ jobs:
       - name: Checkout code
         run: | 
           echo ${{ env.XXX}}
+          pwd
+          ls
           cd ${{env.XXX}}/${{inputs.DOMAIN}}
           pwd
           echo ${{inputs.DOMAIN}}
