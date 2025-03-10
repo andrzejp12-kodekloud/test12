@@ -16,3 +16,4 @@ jobs:
         run: | 
           echo ${{inputs.DOMAIN}}
           echo ${{ vars.ID_DEV_DMLZ }}
+          echo ${{ secrets.APP_PRIVATE_KEY }}
