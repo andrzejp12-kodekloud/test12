@@ -27,11 +27,10 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: | 
-          printenv
           echo "env"
           echo ${{ github.workspace }}  
           echo "context"
-          echo "$GITHUB_CONTEXT"
+          echo ${{ env.GITHUB_CONTEXT }}
       - name: upload
         uses: actions/upload-artifact@v4
         with:
