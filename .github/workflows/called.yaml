@@ -29,6 +29,7 @@ jobs:
         run: | 
           echo "context"
           echo "${{ toJSON(github) }}"
+          echo "${{ github.workspace}}"
       - name: upload
         uses: actions/upload-artifact@v4
         with:
