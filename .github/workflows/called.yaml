@@ -24,19 +24,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4      
       - name: env
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: | 
           printenv
-          echo ${{ inputs.DOMAIN }}
-          echo ${{ env.XXX}}
-          pwd
-          cd ${{env.XXX}}/${{inputs.DOMAIN}}
-          echo "inside folder"
-          echo "aaa" > test
-          pwd
-          echo ${{inputs.DOMAIN}}
-          echo ${{ vars.ID_DEV_DMLZ }}
-          echo ${{ env.APP }}
-          echo ${{ env.eep}}
+          echo "env"
+          echo ${{ github.workspace }}  
+          echo "context"
+          echo "$GITHUB_CONTEXT"
       - name: upload
         uses: actions/upload-artifact@v4
         with:
